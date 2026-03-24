@@ -2,8 +2,11 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
 import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main {
+    static List<String> listWords = new ArrayList<>();
     public static void main(String[] args) throws Exception {
         /*
         TODO
@@ -31,9 +34,13 @@ public class Main {
                 //TODO Добавлять в builderLocationsForHouse строки - локации для дома
                 String curentWord = line.replaceAll("[^А-я]", "");
                 if (curentWord.length() >= 1 && !curentWord.contains("Локации")) {
-                System.out.println("🌹" + curentWord + "🌹");
+                    listWords.add("🌹" + curentWord + "🌹");
                 }
             }
+        }
+
+        for (String word : listWords) {
+            System.out.println(word);
         }
     }
 }
