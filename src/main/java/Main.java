@@ -4,6 +4,7 @@ import org.jsoup.nodes.Document;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     static List<String> listWords = new ArrayList<>();
@@ -45,5 +46,36 @@ public class Main {
          Запросить ввод кол-ва шпионову и ограничить их от 1 до кол-ва человек - 1.
          Если пользователь вводит некорректные значения, он должен вводить их заново.
          */
+        System.out.println("Введите кол-во игроков:");
+        int countPlayer = new Scanner(System.in).nextInt();
+        boolean isCorrectCountPlayer = countPlayer >= 3 && countPlayer <= 10 ? true : false;
+        while (!isCorrectCountPlayer) {
+            System.out.println("Ввод некорректен, попробуйте заново ввести кол-во игроков:");
+            countPlayer = new Scanner(System.in).nextInt();
+            isCorrectCountPlayer = countPlayer >= 3 && countPlayer <= 10 ? true : false;
+        }
+
+        System.out.println("Введите кол-во шпионов:");
+        int countSpy = new Scanner(System.in).nextInt();
+        boolean isCorrectCountSpy = countSpy >= 1 && countSpy <= countPlayer - 1 ? true : false;
+        while (!isCorrectCountSpy) {
+            System.out.println("Ввод некорректен, попробуйте заново ввести кол-во шпионов:");
+            countSpy = new Scanner(System.in).nextInt();
+            isCorrectCountSpy =  countSpy >= 1 && countSpy <= countPlayer - 1 ? true : false;
+        }
+
+        List<Integer> listSpy = new ArrayList<>();
+        while (listSpy.size() < countSpy) {
+            int randomNumberSpy = 1 + (int) (Math.random() * countPlayer);
+            if (randomNumberSpy >= 1 && randomNumberSpy <= countPlayer && !listSpy.contains(randomNumberSpy)) {
+                listSpy.add(randomNumberSpy);
+            }
+        }
+
+        String randomWord = listWords.get((int) (Math.random() * listWords.size()));
+        for (int numberCurrentPlayer = 1; numberCurrentPlayer <= countPlayer; numberCurrentPlayer++) {
+
+
+        }
     }
 }
