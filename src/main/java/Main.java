@@ -32,7 +32,6 @@ public class Main {
                 builderLocationsForHouse.append(line.replaceAll("[^А-я]", "")).append("\n");
             }
         }
-
         System.out.println(builderLocationsForHouse);
     }
 }
