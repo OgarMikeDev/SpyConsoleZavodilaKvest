@@ -80,10 +80,16 @@ public class Main {
                 System.out.println("Эй, ты шпион, усы сбрей");
                 System.out.println("Нажмите \"Enter\", чтоб закрыть свою карточку");
                 new Scanner(System.in).nextLine();
+                for (int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
             } else {
                 System.out.println(randomWord);
                 System.out.println("Нажмите \"Enter\", чтоб закрыть свою карточку");
                 new Scanner(System.in).nextLine();
+                for (int i = 0; i < 50; i++) {
+                    System.out.println();
+                }
             }
         }
     }
