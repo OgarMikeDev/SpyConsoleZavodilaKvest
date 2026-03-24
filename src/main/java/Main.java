@@ -72,10 +72,21 @@ public class Main {
             }
         }
 
+        System.out.println("Шпионы " + listSpy);
+
         String randomWord = listWords.get((int) (Math.random() * listWords.size()));
         for (int numberCurrentPlayer = 1; numberCurrentPlayer <= countPlayer; numberCurrentPlayer++) {
-
-
+            System.out.println("Нажмите \"Enter\", чтоб открыть свою карточку");
+            String enter = new Scanner(System.in).nextLine();
+            if (listSpy.contains(numberCurrentPlayer)) {
+                System.out.println("Эй, ты шпион, усы сбрей");
+                System.out.println("Нажмите \"Enter\", чтоб закрыть свою карточку");
+                enter = new Scanner(System.in).nextLine();
+            } else {
+                System.out.println(randomWord);
+                System.out.println("Нажмите \"Enter\", чтоб закрыть свою карточку");
+                enter = new Scanner(System.in).nextLine();
+            }
         }
     }
 }
