@@ -29,9 +29,11 @@ public class Main {
 
             if (rangeForCut) {
                 //TODO Добавлять в builderLocationsForHouse строки - локации для дома
-                builderLocationsForHouse.append(line.replaceAll("[^А-я]", "")).append("\n");
+                String curentWord = line.replaceAll("[^А-я]", "");
+                if (curentWord.length() >= 1 && !curentWord.contains("Локации")) {
+                System.out.println("🌹" + curentWord + "🌹");
+                }
             }
         }
-        System.out.println(builderLocationsForHouse);
     }
 }
